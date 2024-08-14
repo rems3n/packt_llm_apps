@@ -6,7 +6,7 @@ from langchain_openai import ChatOpenAI
 from langchain.tools import BaseTool, StructuredTool, Tool, tool
 from langchain.schema import HumanMessage
 model = ChatOpenAI(
-    model_name='gpt-3.5-turbo'
+    model_name='gpt-4o-mini'
 )
 load_dotenv(dotenv_path='/Users/christophergusty/code/packt/.env', override=True)
 key = os.environ["SERPAPI_API_KEY"]
@@ -20,5 +20,5 @@ tools = [
     ]
 agent_executor = initialize_agent(tools, model, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
-print(agent_executor('who are going to be the italian male athletes for climbing at the Paris 2024 Olympics?'))
+print(agent_executor('how many gold, silver, and bronze medals did the USA win in the 2024 Paris Olympics?'))
 
